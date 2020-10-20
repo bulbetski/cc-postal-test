@@ -55,6 +55,10 @@ public class DeliveriesTest {
         deliveriesPage.inputWeight(ConfProperties.getProperty("delivery_weight"));
         deliveriesPage.inputDescription(ConfProperties.getProperty("delivery_desc"));
         deliveriesPage.clickSendDeliveryBtn();
+
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+                "//*[contains(text(), 'Ваши посылки')]")));
     }
 
     @AfterClass
